@@ -1,0 +1,30 @@
+
+public class Exercises {
+	
+	
+			
+		
+		public static int count (String text, char c) {
+			
+			
+			
+			int found = 0;
+			for (int i = 0; i < text.length(); i++){
+				if (text.charAt(i) == c){
+					found++;
+				
+				}
+			}
+			
+			
+			return found;
+		}
+		
+	
+public static int main (String[] args){
+	String text = "cccsfhunfdslksdgjhbsddccc";
+	char c = 'd';
+	int a = count (text, c);
+	return a;
+}	
+}
