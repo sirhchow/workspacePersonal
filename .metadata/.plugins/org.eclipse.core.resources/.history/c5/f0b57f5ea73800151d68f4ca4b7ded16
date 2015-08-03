@@ -1,0 +1,40 @@
+package blackJack;
+
+public class BlackJackMain {
+	
+	public static Deck myDeck = new Deck();
+	public static Hand myHand = new Hand();
+	public static Hand dealerHand = new Hand();
+	
+			
+	public static void main(String[] args) {
+		System.out.println ("Welcome to Black Jack");
+	
+		myDeck.printDeck();
+		myDeck.shuffleDeck();
+		myHand.addCard(myDeck.dealCard());
+		myHand.addCard(myDeck.dealCard());
+		myHand.printCards();
+		System.out.println(myHand.returnValue());
+		dealerHand.addCard(myDeck.dealCard());
+		dealerHand.addCard(myDeck.dealCard());
+		dealerHand.printCards();
+		System.out.println(dealerHand.returnValue());
+		
+		if (myHand.returnValue() == 21) {
+			System.out.println("Player Wins!");
+		}
+		
+		else if (dealerHand.returnValue() == 21) {
+			System.out.println("Dealer Wins!");
+		}
+		
+		else if (myHand.returnValue() > 21) {
+			System.out.println("Player Busts!");
+		}
+		
+		else if (dealerHand.returnValue() > 21) {
+			System.out.println("Dealer Busts!");
+		}
+}
+}
