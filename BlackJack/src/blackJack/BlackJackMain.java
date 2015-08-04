@@ -33,7 +33,7 @@ public class BlackJackMain {
 		
 	}
 	
-	private void hit() {
+	private static void hit() {
 		
 	}
 	private static boolean checkWinner() {
@@ -87,6 +87,10 @@ public class BlackJackMain {
 		
 		if (console.next().equalsIgnoreCase("S")) {
 			stand();
+		}
+		
+		if (console.next().equalsIgnoreCase("H")) {
+			hit();
 		}
 }
 }
