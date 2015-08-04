@@ -9,7 +9,7 @@ public class BlackJackMain {
 	public static Hand dealerHand = new Hand();
 	public static Scanner console = new Scanner(System.in);
 	
-	private void stand() {
+	private static void stand() {
 		while (dealerHand.returnValue() < 17) {
 			dealerHand.addCard(myDeck.dealCard());
 			dealerHand.printCards();
@@ -48,7 +48,7 @@ public class BlackJackMain {
 	public static void main(String[] args) {
 		System.out.println ("Welcome to Black Jack");
 	
-		myDeck.printDeck();
+		//myDeck.printDeck();
 		myDeck.shuffleDeck();
 		myHand.addCard(myDeck.dealCard());
 		myHand.addCard(myDeck.dealCard());
@@ -64,5 +64,7 @@ public class BlackJackMain {
 		System.out.println("Hit or Stand? H/S");
 		
 		if (console.next().equalsIgnoreCase("S")) {
+			stand();
+		}
 }
 }
