@@ -95,10 +95,12 @@ public class BlackJackMain {
 				
 		System.out.println("Hit or Stand? H/S");
 		
-		if (console.next().equalsIgnoreCase("S")) {
+		String a = console.next();
+		
+		if (a.equalsIgnoreCase("S")) {
 			stand();
 			
-		}else if (console.next().equalsIgnoreCase("H")) {
+		}else if (a.equalsIgnoreCase("H")) {
 			hit();
 		}
 }
