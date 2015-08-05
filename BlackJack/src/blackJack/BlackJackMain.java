@@ -19,11 +19,13 @@ public class BlackJackMain {
 			System.out.println("Dealer Wins!");
 			return true;
 		}
+		
 		return false;
 		
 	}
 	private static void stand() {
 		while (dealerHand.returnValue() < 17) {
+			System.out.println("Dealer Draws!");
 			dealerHand.addCard(myDeck.dealCard());
 			dealerHand.printCards();
 			System.out.println(dealerHand.returnValue());
@@ -34,8 +36,15 @@ public class BlackJackMain {
 	}
 	
 	private static void hit() {
+		while (myHand.returnValue() < 21) {
+			myHand.addCard(myDeck.dealCard());
+			myHand.printCards();
+			System.out.println(myHand.returnValue());
+		}
 		
+		checkWinner();
 	}
+	
 	private static boolean checkWinner() {
 		if (myHand.returnValue() > 21) {
 			System.out.println("Player Busts!");
@@ -44,6 +53,7 @@ public class BlackJackMain {
 		
 		else if (dealerHand.returnValue() > 21) {
 			System.out.println("Dealer Busts!");
+			System.out.println("Player Wins!");
 			return true;
 		}
 		
@@ -87,9 +97,8 @@ public class BlackJackMain {
 		
 		if (console.next().equalsIgnoreCase("S")) {
 			stand();
-		}
-		
-		if (console.next().equalsIgnoreCase("H")) {
+			
+		}else if (console.next().equalsIgnoreCase("H")) {
 			hit();
 		}
 }
