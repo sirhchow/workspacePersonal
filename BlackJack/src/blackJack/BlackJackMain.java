@@ -8,6 +8,7 @@ public class BlackJackMain {
 	public static Hand myHand = new Hand();
 	public static Hand dealerHand = new Hand();
 	public static Scanner console = new Scanner(System.in);
+	public static String a;
 	
 	private static boolean checkBlackJack() {
 		if (myHand.returnValue() == 21) {
@@ -36,13 +37,15 @@ public class BlackJackMain {
 	}
 	
 	private static void hit() {
-		while (myHand.returnValue() < 21) {
+		if (myHand.returnValue() < 21) {
 			myHand.addCard(myDeck.dealCard());
 			myHand.printCards();
 			System.out.println(myHand.returnValue());
+		}else{
+			System.out.println("Player Busts!");
 		}
 		
-		checkWinner();
+		
 	}
 	
 	private static boolean checkWinner() {
@@ -95,13 +98,17 @@ public class BlackJackMain {
 				
 		System.out.println("Hit or Stand? H/S");
 		
-		String a = console.next();
+		a = console.next();
+		
+		while (a.equalsIgnoreCase("H")) {
+			hit();
+			System.out.println("Hit or Stand? H/S");
+			a = console.next();
+		}
 		
 		if (a.equalsIgnoreCase("S")) {
 			stand();
-			
-		}else if (a.equalsIgnoreCase("H")) {
-			hit();
 		}
+		
 }
 }
